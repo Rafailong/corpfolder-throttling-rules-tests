@@ -1,0 +1,11 @@
+{
+  "name": "corp-test",
+  "version": "1.0.0",
+  "description": "test de reglas de throttling",
+  "main": "version.tests.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ravila@nearbpo.com",
+  "license": "ISC"
+}
