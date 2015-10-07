@@ -4,6 +4,7 @@
  */
 var EventEmitter = require('events').EventEmitter;
 var request = require('request');
+var config = require('./config');
 var counter = 0;
 var interval = setInterval(sendRequest, 6000);
 var emitter = new EventEmitter();
@@ -11,7 +12,7 @@ var emitter = new EventEmitter();
 emitter.on('increment', checkCounter);
 
 function sendRequest () {
-	request.get('http://ravila-apigee-test.nearbpo.com/v1/crapfolder/version')
+	request.get(config.serviceURL.version)
     .on('response', function (response) {
       console.log(response.statusCode);
       emitter.emit('increment');
