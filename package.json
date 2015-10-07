@@ -7,5 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ravila@nearbpo.com",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "faker": "^3.0.1",
+    "request": "^2.64.0",
+    "uuid": "^2.0.1"
+  }
 }
