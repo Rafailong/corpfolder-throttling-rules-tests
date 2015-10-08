@@ -32,7 +32,7 @@ function getUserToken (cb) {
 function getTokenViewType(token, callback) {
   var getViewTypeToken = {
     url: "http://staging.corpfolder.com/api/latest/token/organizacion/ravila@nearbpo.com/rol/MASTER",
-    headers: { 'Token-Auth': token }
+    headers: { 'Token-Auth': token, 'Accept': 'application/json', 'Content-Type': 'application/json' }
   };
   console.log('getin view type token....');
   return sendRequest(getViewTypeToken, callback);
@@ -53,8 +53,8 @@ function saveTokensInFile(tokens, cb) {
 getUserToken(function (tokenResponse) {
   console.log('User Token :' + JSON.stringify(tokenResponse));
   getTokenViewType(tokenResponse.token, function (tokenViewResponse) {
-    console.log('Token de Vista:' + JSON.stringify(tokenViewResponse));
-    var tokens = { userToken: tokenResponse.token, viewToken: tokenViewResponse.token };
-    return saveTokensInFile(tokens, function () { console.log('success!!! :)'); });
+    console.log('Token de Vista:' + tokenViewResponse);
+    var tokens = { userToken: tokenResponse.token, viewToken: JSON.parse(tokenViewResponse).token };
+    return saveTokensInFile(tokens, function () { console.log('success!!! :]'); });
   });
 });
