@@ -38,10 +38,23 @@ function getTokenViewType(token, callback) {
   return sendRequest(getViewTypeToken, callback);
 }
 
+function saveTokensInFile(tokens, cb) {
+  fs.writeFile('token.json', JSON.stringify(tokens), function (err) {
+    if (!err) {
+      return cb();
+    }
+
+    console.error('fail to save tokens ins file');
+    console.error(JSON.stringify(err));
+    process.exit(2);
+  });
+}
 
 getUserToken(function (tokenResponse) {
   console.log('User Token :' + JSON.stringify(tokenResponse));
   getTokenViewType(tokenResponse.token, function (tokenViewResponse) {
     console.log('Token de Vista:' + JSON.stringify(tokenViewResponse));
+    var tokens = { userToken: tokenResponse.token, viewToken: tokenViewResponse.token };
+    return saveTokensInFile(tokens, function () { console.log('success!!! :)'); });
   });
 });
