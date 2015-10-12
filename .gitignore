@@ -1,5 +1,5 @@
 node_modules/
 **.zip
 config.js
-*.json
+token.json
 utils/
