@@ -10,7 +10,7 @@ var requestOpts = {
   json: true,
   body: generadorDeComprobante.getJson()
 };
-console.log(requestOpts.body);
+
 fs.readFile('token.json', function (err, data) {
   if (!err) {
     var tokens = JSON.parse(data);
@@ -19,7 +19,6 @@ fs.readFile('token.json', function (err, data) {
       'Content-Type': 'application/json'
     };
     return success360.sendRequest(requestOpts, 200, 429, 10000, function callback(err, success) { return; });
-    // return startRequests(requestOptions, successStatusCode, errorStatusCode, interval, callbak);
   }
 
   console.error('fail reading token.json file');
