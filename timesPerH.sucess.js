@@ -16,7 +16,7 @@
    if (!successStatusCode) successStatusCode = 200;
    if (errorStatusCode) errorStatusCode = 429;
    if (!interval) interval = 100;
-   return startRequests(requestOptions, successStatusCode, errorStatusCode, interval, callback, times);
+   return startRequests(requestOptions, successStatusCode, errorStatusCode, interval, callback, this.times);
  };
 
  function startRequests(requestOptions, successStatusCode, errorStatusCode, time, callback, times) {
