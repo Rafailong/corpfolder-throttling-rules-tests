@@ -21,7 +21,7 @@ function sendRequest(requestOptions, cb) {
 function getUserToken (cb) {
   var getTokenCallOpts = {
     method: 'POST',
-    url: "http://staging.corpfolder.com/api/latest/token",
+    url: "https://dev.corpfolder.com/api/latest/token",
     json: true,
     body: config.userCredentials
   };
@@ -31,7 +31,7 @@ function getUserToken (cb) {
 
 function getTokenViewType(token, callback) {
   var getViewTypeToken = {
-    url: "http://staging.corpfolder.com/api/latest/token/organizacion/ravila@nearbpo.com/rol/MASTER",
+    url: "https://dev.corpfolder.com/api/latest/token/organizacion/ravila@nearbpo.com/rol/MASTER",
     headers: { 'Token-Auth': token, 'Accept': 'application/json', 'Content-Type': 'application/json' }
   };
   console.log('getin view type token....');
